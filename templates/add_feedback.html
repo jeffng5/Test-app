@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+Hi {{user_name}},
+
+Please take a minute too add some feeback.
+
+
+{%block content%}
+<form method="POST">
+    {{form.hidden_tag()}}
+        {% for field in form 
+            if field.widget.input_type != 'hidden' %}
+        <p>{{field.label}}{{field}}</p>
+        {%endfor%}
+        <button>Give Feedback</button>
+    </form>
+    
+    
+    
+    {%endblock%} 
